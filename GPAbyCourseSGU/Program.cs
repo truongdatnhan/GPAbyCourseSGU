@@ -1,7 +1,11 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace GPAbyCourseSGU
 {
@@ -16,7 +20,7 @@ namespace GPAbyCourseSGU
             web.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0";
             var doc = web.Load(courseLink);
             var nodesTotal = doc.DocumentNode.SelectNodes("//table").ToList();
-            var nodes = nodesTotal[4].SelectNodes("tr[position()>2]").ToList();
+            var nodes = nodesTotal[4].SelectNodes("tr[position()>1]").ToList();
             foreach (var node in nodes)
                 {
                     var student = new Student
@@ -40,7 +44,7 @@ namespace GPAbyCourseSGU
             }
 
             list.ForEach(x => Console.WriteLine(x.StudentInfo));
-
+            File.WriteAllLines(@"D:\List.txt", list.Select(x => x.StudentInfo).ToList());
         }
     }
 }
