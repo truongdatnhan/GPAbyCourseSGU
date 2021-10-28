@@ -12,7 +12,8 @@ namespace GPAbyCourseSGU
         public String FirstName { get; set; }
         public String LastName { get; set; }
         public String Class { get; set; }
-        public String GPA { get; set; }
-        public String StudentInfo => $"{MSSV} {FirstName} {LastName} {Class} {GPA}";
+        public String LastedGPA { get; set; }
+        public String TotalGPA { get; set; }
+        public String StudentInfo => $"{MSSV} | {FirstName} {LastName} | {Class} | {LastedGPA} | {TotalGPA}";
     }
 }

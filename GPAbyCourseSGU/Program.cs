@@ -15,7 +15,7 @@ namespace GPAbyCourseSGU
         {
             List<Student> list = new List<Student>();
 
-            String courseLink = "http://thongtindaotao.sgu.edu.vn/Default.aspx?page=danhsachsvtheonhomhoc&malop=DCT1182&madk=84105201%20%2001";
+            String courseLink = "http://thongtindaotao.sgu.edu.vn/Default.aspx?page=danhsachsvtheonhomhoc&malop=DCT1184&madk=84130703%20%2001";
             HtmlWeb web = new HtmlWeb();
             web.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0";
             var doc = web.Load(courseLink);
@@ -40,7 +40,8 @@ namespace GPAbyCourseSGU
                 doc = web.Load(gpaLink);
                 var nodesGpaTotal = doc.DocumentNode.SelectNodes("//table").ToList();
                 var nodesGpa = nodesGpaTotal[4].SelectNodes("tr[@class='row-diemTK']").ToList();
-                student.GPA = nodesGpa[nodesGpa.Count - 6].SelectSingleNode("td/span[2]").InnerText;
+                student.LastedGPA = nodesGpa[nodesGpa.Count - 6].SelectSingleNode("td/span[2]").InnerText;
+                student.TotalGPA = nodesGpa[nodesGpa.Count - 4].SelectSingleNode("td/span[2]").InnerText;
             }
 
             list.ForEach(x => Console.WriteLine(x.StudentInfo));
