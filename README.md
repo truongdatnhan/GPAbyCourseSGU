@@ -9,3 +9,4 @@ Chỉ hoạt động bình thường khi web ổn định, web trường sập d
 
 Nếu bạn muốn phức tạp hơn ?
 Hãy xem qua ScrapperSGU: https://github.com/truongdatnhan/ScrapperSGU
+Ghé qua shop của mình: https://storelinhtinh.com/
